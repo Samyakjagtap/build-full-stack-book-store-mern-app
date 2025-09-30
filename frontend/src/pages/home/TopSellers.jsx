@@ -19,7 +19,12 @@ const TopSellers = () => {
     
     const [selectedCategory, setSelectedCategory] = useState("Choose a genre");
 
-   const {data: books = []} = useFetchAllBooksQuery();
+   const {data: books = [], isLoading, isError, error} = useFetchAllBooksQuery();
+   
+   console.log('TopSellers - books data:', books);
+   console.log('TopSellers - isLoading:', isLoading);
+   console.log('TopSellers - isError:', isError);
+   console.log('TopSellers - error:', error);
   
     const filteredBooks = selectedCategory === "Choose a genre" ? books : books.filter(book => book.category === selectedCategory.toLowerCase())
 

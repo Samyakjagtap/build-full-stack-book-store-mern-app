@@ -16,7 +16,12 @@ import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 const Recommened = () => {
    
 
-    const {data: books = []} = useFetchAllBooksQuery();
+    const {data: books = [], isLoading, isError, error} = useFetchAllBooksQuery();
+    
+    console.log('Recommended - books data:', books);
+    console.log('Recommended - isLoading:', isLoading);
+    console.log('Recommended - isError:', isError);
+    console.log('Recommended - error:', error);
   return (
     <div className='py-16'>
          <h2 className='text-3xl font-semibold mb-6'>Recommended for you </h2>
