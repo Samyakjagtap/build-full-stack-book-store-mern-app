@@ -13,7 +13,29 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 
-const categories = ["Choose a genre", "Business", "Fiction", "Horror", "Adventure"]
+const categories = [
+  "Choose a genre", 
+  "Business", 
+  "Books", 
+  "Marketing", 
+  "Horror", 
+  "Young-adult", 
+  "Fantasy", 
+  "Romance", 
+  "Classic", 
+  "Children", 
+  "Philosophy", 
+  "Sci-fi", 
+  "Thriller", 
+  "Mystery", 
+  "Indian-literature", 
+  "Self-help", 
+  "Spirituality", 
+  "Biography", 
+  "Memoir", 
+  "Historical-fiction", 
+  "Drama"
+]
 
 const TopSellers = () => {
     

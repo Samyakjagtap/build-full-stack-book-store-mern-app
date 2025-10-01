@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "1",
+    "title": "How to Grow Your Online Store",
+    "description": "Learn the best strategies to grow your online store in today's competitive market.",
+    "category": "business",
+    "trending": true,
+    "coverImage": "book-1.png",
+    "oldPrice": 499,
+    "newPrice": 299
+  },
+  {
+    "_id": "2",
+    "title": "Top 10 Books This Year",
+    "description": "A curated list of the best books that are trending this year.",
+    "category": "books",
+    "trending": true,
+    "coverImage": "book-2.png",
+    "oldPrice": 249,
+    "newPrice": 149
+  }
+]

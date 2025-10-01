@@ -87,10 +87,25 @@ const UpdateBook = () => {
           options={[
             { value: '', label: 'Choose A Category' },
             { value: 'business', label: 'Business' },
-            { value: 'technology', label: 'Technology' },
-            { value: 'fiction', label: 'Fiction' },
+            { value: 'books', label: 'Books' },
+            { value: 'marketing', label: 'Marketing' },
             { value: 'horror', label: 'Horror' },
-            { value: 'adventure', label: 'Adventure' },
+            { value: 'young-adult', label: 'Young Adult' },
+            { value: 'fantasy', label: 'Fantasy' },
+            { value: 'romance', label: 'Romance' },
+            { value: 'classic', label: 'Classic' },
+            { value: 'children', label: 'Children' },
+            { value: 'philosophy', label: 'Philosophy' },
+            { value: 'sci-fi', label: 'Science Fiction' },
+            { value: 'thriller', label: 'Thriller' },
+            { value: 'mystery', label: 'Mystery' },
+            { value: 'indian-literature', label: 'Indian Literature' },
+            { value: 'self-help', label: 'Self Help' },
+            { value: 'spirituality', label: 'Spirituality' },
+            { value: 'biography', label: 'Biography' },
+            { value: 'memoir', label: 'Memoir' },
+            { value: 'historical-fiction', label: 'Historical Fiction' },
+            { value: 'drama', label: 'Drama' }
           ]}
           register={register}
         />

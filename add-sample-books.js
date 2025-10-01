@@ -1,57 +1,30 @@
 const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
 // Import the Book model
 const Book = require('./backend/src/books/book.model');
 
-// Sample books data
-const sampleBooks = [
-    {
-        title: "To Kill a Mockingbird",
-        description: "A gripping tale of racial injustice and childhood innocence in the American South.",
-        category: "fiction",
-        trending: true,
-        coverImage: "book-1.png",
-        oldPrice: 15.99,
-        newPrice: 12.99
-    },
-    {
-        title: "1984",
-        description: "George Orwell's dystopian masterpiece about totalitarian surveillance and control.",
-        category: "fiction",
-        trending: true,
-        coverImage: "book-2.png",
-        oldPrice: 14.99,
-        newPrice: 11.99
-    },
-    {
-        title: "The Great Gatsby",
-        description: "F. Scott Fitzgerald's classic novel about the Jazz Age and the American Dream.",
-        category: "fiction",
-        trending: false,
-        coverImage: "book-3.png",
-        oldPrice: 13.99,
-        newPrice: 10.99
-    },
-    {
-        title: "Think and Grow Rich",
-        description: "Napoleon Hill's timeless guide to success and wealth building.",
-        category: "business",
-        trending: true,
-        coverImage: "book-4.png",
-        oldPrice: 18.99,
-        newPrice: 15.99
-    },
-    {
-        title: "The Hobbit",
-        description: "J.R.R. Tolkien's beloved fantasy adventure of Bilbo Baggins.",
-        category: "adventure",
-        trending: false,
-        coverImage: "book-5.png",
-        oldPrice: 16.99,
-        newPrice: 13.99
-    }
-];
+// Read books data from frontend books.json file
+const booksJsonPath = path.join(__dirname, './frontend/public/books.json');
+let sampleBooks = [];
+
+try {
+    const booksData = fs.readFileSync(booksJsonPath, 'utf8');
+    const booksFromJson = JSON.parse(booksData);
+    
+    // Transform the data to match the backend schema (remove _id field as MongoDB will generate it)
+    sampleBooks = booksFromJson.map(book => {
+        const { _id, ...bookWithoutId } = book;
+        return bookWithoutId;
+    });
+    
+    console.log(`Loaded ${sampleBooks.length} books from books.json`);
+} catch (error) {
+    console.error('Error reading books.json:', error);
+    process.exit(1);
+}
 
 async function addSampleBooks() {
     try {
