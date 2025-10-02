@@ -33,19 +33,25 @@ const Navbar = () => {
             <nav className="flex justify-between items-center">
                 {/* left side */}
                 <div className="flex items-center md:gap-16 gap-4">
-                    <Link to="/">
-                        <HiMiniBars3CenterLeft className="size-6" />
+                    <Link to="/" className="flex items-center space-x-3">
+                        <div className="relative w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center shadow-lg transform hover:scale-105 transition-transform duration-200">
+                            {/* Book pages effect */}
+                            <div className="absolute inset-1 bg-white rounded-lg opacity-90"></div>
+                            <div className="absolute inset-1.5 bg-orange-100 rounded-lg opacity-80"></div>
+                            {/* Quill/pen icon */}
+                            <div className="relative z-10">
+                                <svg className="w-5 h-5 text-orange-700" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                                </svg>
+                            </div>
+                            {/* Small decorative elements */}
+                            <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-2xl font-bold text-gray-800 leading-none">Quillia</span>
+                            <span className="text-xs text-orange-600 font-medium tracking-wider uppercase">Literary Hub</span>
+                        </div>
                     </Link>
-
-                    {/* search input */}
-                    <div className="relative sm:w-72 w-40 space-x-2">
-
-                        <IoSearchOutline className="absolute inline-block left-3 inset-y-2" />
-
-                        <input type="text" placeholder="Search here"
-                            className="bg-[#EAEAEA] w-full py-1 md:px-8 px-6 rounded-md focus:outline-none"
-                        />
-                    </div>
                 </div>
 
 

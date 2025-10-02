@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiShoppingCart } from 'react-icons/fi'
+import { FiShoppingCart, FiHeart } from 'react-icons/fi'
 import { getImgUrl } from '../../utils/getImgUrl'
 
 import { Link } from'react-router-dom'
@@ -14,35 +14,44 @@ const BookCard = ({book}) => {
         dispatch(addToCart(product))
     }
     return (
-        <div className=" rounded-lg transition-shadow duration-300">
-            <div
-                className="flex flex-col sm:flex-row sm:items-center sm:h-72  sm:justify-center gap-4"
-            >
-                <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden group transform hover:scale-105 cursor-pointer">
+            <div className="flex flex-col">
+                <div className="relative overflow-hidden bg-gray-100 aspect-[3/4]">
                     <Link to={`/books/${book._id}`}>
                         <img
                             src={`${getImgUrl(book?.coverImage)}`}
-                            alt=""
-                            className="w-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
+                            alt={book?.title}
+                            className="w-full h-full object-cover transition-transform duration-300"
                         />
                     </Link>
+                    <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-200 group">
+                        <FiHeart className="w-4 h-4 text-gray-600 group-hover:text-red-500 transition-colors" />
+                    </button>
                 </div>
 
-                <div>
+                <div className="p-6">
                     <Link to={`/books/${book._id}`}>
-                        <h3 className="text-xl font-semibold hover:text-blue-600 mb-3">
-                       {book?.title}
+                        <h3 className="text-xl font-bold text-gray-900 hover:text-orange-600 mb-3 transition-colors">
+                            {book?.title}
                         </h3>
                     </Link>
-                    <p className="text-gray-600 mb-5">{book?.description.length > 80 ? `${book.description.slice(0, 80)}...` : book?.description}</p>
-                    <p className="font-medium mb-5">
-                        ₹{book?.newPrice} <span className="line-through font-normal ml-2">₹ {book?.oldPrice}</span>
+                    <p className="text-gray-600 mb-5 text-sm leading-relaxed">
+                        {book?.description.length > 60 ? `${book.description.slice(0, 60)}...` : book?.description}
                     </p>
+                    <div className="flex items-center justify-between mb-4">
+                        <div>
+                            <span className="text-xl font-bold text-gray-900">₹ {book?.newPrice}</span>
+                            {book?.oldPrice && (
+                                <span className="text-sm text-gray-500 line-through ml-2">₹ {book?.oldPrice}</span>
+                            )}
+                        </div>
+                    </div>
                     <button 
-                    onClick={() => handleAddToCart(book)}
-                    className="btn-primary px-6 space-x-1 flex items-center gap-1 ">
-                        <FiShoppingCart className="" />
-                        <span>Add to Cart</span>
+                        onClick={() => handleAddToCart(book)}
+                        className="w-full bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+                    >
+                        <FiShoppingCart className="w-4 h-4" />
+                        Add
                     </button>
                 </div>
             </div>
