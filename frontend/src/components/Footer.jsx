@@ -79,14 +79,7 @@ const Footer = () => {
             <FaFacebook className="text-lg group-hover:text-white" />
           </a>
         </div>
-        
-        {/* Made in Bolt Badge */}
-        <div className="flex justify-center md:justify-end mt-8">
-          <div className="flex items-center space-x-2 text-gray-500 text-sm">
-            <span>⚡</span>
-            <span>Made in Bolt</span>
-          </div>
-        </div>
+         
       </div>
     </footer>
   );
