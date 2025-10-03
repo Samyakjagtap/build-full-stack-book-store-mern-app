@@ -1,6 +1,6 @@
 const getBaseUrl = () => {
     return import.meta.env.PROD 
-        ? "https://your-backend-service-name.onrender.com" 
+        ? "https://build-full-stack-book-store-mern-app-1.onrender.com/" 
         : "http://localhost:5000"
 }
 

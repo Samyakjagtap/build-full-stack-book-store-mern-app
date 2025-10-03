@@ -12,7 +12,7 @@ app.use(cors({
     origin: [
         'http://localhost:5173', 
         'https://book-app-frontend-tau.vercel.app',
-        'https://your-frontend-site-name.onrender.com'
+        'https://build-full-stack-book-store-mern-app-2.onrender.com/'
     ],
     credentials: true
 }))
